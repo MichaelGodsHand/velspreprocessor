@@ -206,7 +206,7 @@ else:
 # Initialize S3 client (with error handling) - MUST be before ChromaDB restore
 aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
 aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
-aws_region = os.getenv("AWS_REGION", "ap-south-1")
+aws_region = os.getenv("AWS_REGION", "us-east-1")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME", "velswidgetz")
 
 def get_bucket_region(bucket_name, access_key, secret_key, default_region):
@@ -1392,9 +1392,9 @@ def create_compiled_pdf_from_images(s3_image_urls, user_number, query):
             }
         )
         
-        # Generate direct S3 object URL (region-specific format)
-        # Format: https://{bucket}.s3.{region}.amazonaws.com/{key}
-        compiled_pdf_url = f"https://{S3_BUCKET_NAME}.s3.{aws_region}.amazonaws.com/compiled_pdfs/{pdf_filename}"
+        # Generate direct S3 object URL (generic endpoint format)
+        # Format: https://{bucket}.s3.amazonaws.com/{key}
+        compiled_pdf_url = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/compiled_pdfs/{pdf_filename}"
         print(f" ✓ Uploaded")
         print(f"  ✓ Compiled PDF URL: {compiled_pdf_url}")
         
