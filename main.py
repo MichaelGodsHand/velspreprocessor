@@ -207,7 +207,7 @@ else:
 aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
 aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 aws_region = os.getenv("AWS_REGION", "ap-south-1")
-S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME", "velswidget")
+S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME", "velswidgetz")
 
 def get_bucket_region(bucket_name, access_key, secret_key, default_region):
     """Get the actual region of an S3 bucket."""
